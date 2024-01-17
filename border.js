@@ -1,5 +1,5 @@
 "use strict";
-if (isSalesforce(window.location.host)) {
+if (isEksamen(window.location.host)) {
     chrome.storage.sync.get(['urls', 'tabIcon', 'overlay'], function (result) {
         onGot(result);
     });
@@ -58,14 +58,14 @@ function setBorder(color, pattern, defaultColor, sandbox, isTabIconOn, isOverlay
 }
 
 function addBorder(type, color) {
-    if (document.querySelector("#SalesforceProductionWarningLeftBar") != null) {
-        var leftBarObj = document.querySelector("#SalesforceProductionWarningLeftBar");
+    if (document.querySelector("#ProductionWarningLeftBar") != null) {
+        var leftBarObj = document.querySelector("#ProductionWarningLeftBar");
         leftBarObj.parentNode.removeChild(leftBarObj);
-        var rightBarObj = document.querySelector("#SalesforceProductionWarningRightBar");
+        var rightBarObj = document.querySelector("#ProductionWarningRightBar");
         rightBarObj.parentNode.removeChild(rightBarObj);
-        var topBarObj = document.querySelector("#SalesforceProductionWarningTopBar");
+        var topBarObj = document.querySelector("#ProductionWarningTopBar");
         topBarObj.parentNode.removeChild(topBarObj);
-        var buttomBarObj = document.querySelector("#SalesforceProductionWarningButtomBar");
+        var buttomBarObj = document.querySelector("#ProductionWarningBottomBar");
         buttomBarObj.parentNode.removeChild(buttomBarObj);
     }
     if (type === "lightning") {
@@ -82,14 +82,14 @@ function addBorder(type, color) {
 
     var args = "margin:0px;padding:0px;position: fixed;z-index: 100;border:2.5px solid " + color + ";background:" + color;
 
-    addBar("SalesforceProductionWarningLeftBar", args + ";width: 0px;height:" + height + "px;top:0px;left:0px;");
-    addBar("SalesforceProductionWarningTopBar", args + ";width:" + width + "px;height:0px;top:0px;left:5px;");
-    addBar("SalesforceProductionWarningRightBar", args + ";width: 0px;height:" + height + "px;top:5px;left:" + width + "px;");
-    addBar("SalesforceProductionWarningButtomBar", args + ";width:" + width + "px;height:0px;top:" + height + "px;left:0px;");
+    addBar("ProductionWarningLeftBar", args + ";width: 0px;height:" + height + "px;top:0px;left:0px;");
+    addBar("ProductionWarningTopBar", args + ";width:" + width + "px;height:0px;top:0px;left:5px;");
+    addBar("ProductionWarningRightBar", args + ";width: 0px;height:" + height + "px;top:5px;left:" + width + "px;");
+    addBar("ProductionWarningBottomBar", args + ";width:" + width + "px;height:0px;top:" + height + "px;left:0px;");
 }
 
 function addOverlay(color) {
-    const id = 'SalesforceProductionWarningOverlay';
+    const id = 'ProductionWarningOverlay';
     if (document.querySelector(`#${id}`)) {
         return;
     }
@@ -185,7 +185,7 @@ function addBar(id, style) {
 }
 
 function isProduction(s) {
-    var regu = /^(?!.*cs\d).(?!.*--).*\.lightning\.force\.com|(^login\.|^(ap|na|eu|um|usa|ind)[0-9]{1,3}\.|^(?!.*cs\d)(?!.*--).*\.my\.)(salesforce|visual\.force|visualforce)\.com$/g;
+    var regu = /^.*eksamen.udir.no.*$/g;
     var re = new RegExp(regu);
     if (re.test(s)) {
         return true;
@@ -194,8 +194,8 @@ function isProduction(s) {
     }
 }
 
-function isSalesforce(s) {
-    var regu = /^(.*\.lightning\.force\.com|.*[\.my]?\.(salesforce|visual\.force|visualforce)\.com)$/g;
+function isEksamen(s) {
+    var regu = /^.*eksamen.udir.no.*$/g;
     var re = new RegExp(regu);
     if (re.test(s)) {
         return true;

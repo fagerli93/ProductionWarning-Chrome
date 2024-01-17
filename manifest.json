@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Salesforce Production Warning",
+    "name": "Eksamen Production Warning",
     "version": "1.6.1",
     "description": "Add a border on Screen to notify the environment that be operating is Production!",
     "icons": {
@@ -11,10 +11,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.salesforce.com/*",
-                "*://*.visual.force.com/*",
-                "*://*.lightning.force.com/*",
-                "*://*.visualforce.com/*"
+                "*://*.eksamen.udir.no/*"
             ],
             "js": [
                 "border.js"
