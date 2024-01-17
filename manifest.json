@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Eksamen Production Warning",
+    "name": "PAS Production Warning",
     "version": "1.6.1",
     "description": "Add a border on Screen to notify the environment that be operating is Production!",
     "icons": {
@@ -11,7 +11,10 @@
     "content_scripts": [
         {
             "matches": [
-                "*://*.eksamen.udir.no/*"
+                "*://*.eksamen.udir.no/*",
+                "*://*.prover.udir.no/*",
+                "*://*.kandidat.udir.no/*",
+                "*://*.elev.udir.no/*"
             ],
             "js": [
                 "border.js"

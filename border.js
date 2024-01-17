@@ -1,5 +1,5 @@
 "use strict";
-if (isEksamen(window.location.host)) {
+if (isPAS(window.location.host)) {
     chrome.storage.sync.get(['urls', 'tabIcon', 'overlay'], function (result) {
         onGot(result);
     });
@@ -185,7 +185,7 @@ function addBar(id, style) {
 }
 
 function isProduction(s) {
-    var regu = /^.*eksamen.udir.no.*$/g;
+    var regu = /^.*(eksamen|prover|elev|kandidat).udir.no.*$/g;
     var re = new RegExp(regu);
     if (re.test(s)) {
         return true;
@@ -194,8 +194,8 @@ function isProduction(s) {
     }
 }
 
-function isEksamen(s) {
-    var regu = /^.*eksamen.udir.no.*$/g;
+function isPAS(s) {
+    var regu = /^.*(eksamen|prover|elev|kandidat).udir.no.*$/g;
     var re = new RegExp(regu);
     if (re.test(s)) {
         return true;
