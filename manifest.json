@@ -14,7 +14,12 @@
                 "*://*.eksamen.udir.no/*",
                 "*://*.prover.udir.no/*",
                 "*://*.kandidat.udir.no/*",
-                "*://*.elev.udir.no/*"
+                "*://*.elev.udir.no/*",
+                "*://*.pgs-admin.udir.no/*",
+                "*://*.uidp.udir.no/*",
+                "*://*.uip-admin.udir.no/*",
+                "*://*.forfatter.udir.no/*",
+                "*://*.uesp.udir.no/*"
             ],
             "js": [
                 "border.js"
